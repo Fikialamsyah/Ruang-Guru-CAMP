@@ -7,4 +7,11 @@ import "fmt"
 // Outputkan hasilnya ya
 func main() {
 	// TODO: answer here
+	name := []string{"f", "i", "k", "i"}
+
+	// huruf pertama
+	fmt.Println(name[0])
+
+	// huruf kedua
+	fmt.Println(name[3])
 }

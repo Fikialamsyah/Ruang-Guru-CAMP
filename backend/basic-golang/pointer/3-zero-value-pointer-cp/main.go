@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Dari contoh yang telah diberikan, kamu dapat bereksperimen dengan zero value pada pointer.
 // Program dibawah akan mengeluarkan panic, modifikasi kode dibawah sehingga program tidak mengeluarkan panic.
@@ -18,6 +20,12 @@ type SubjectScore struct {
 func GetMaxScore(student *Student) int {
 	// TODO: answer here
 	maxScore := 0
+	defer func ()  {
+		if err := recover(); err != nil {
+			fmt.Println("student is null")
+			return 
+		}
+	}()
 	for _, score := range student.SubjectScore.Scores {
 		if score > maxScore {
 			maxScore = score

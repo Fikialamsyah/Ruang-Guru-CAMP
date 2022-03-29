@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // pada cekpoin ini kalian akan mencoba untuk menghapus data dengan tipe []map[string]string
 // gabungan slice dan map.
@@ -17,14 +19,17 @@ func main() {
 	// terdapat kesalahan pada data gender tersebut dapatkan kalian memperbaiki nya ?
 	// TODO: answer here
 	for _, val := range namaUmur {
+		if val["name"] == "Leonhard Euler" {
+			val["gender"] = "male"
+		}
 		fmt.Println(val["name"], " ", val["gender"])
 	}
 
 	// Nah coba saatnya kalian menghapuskan key "gender" pada setiap data
 	// delete data if key is equal "gender"
 
-	for _, val := range namaUmur {
-		fmt.Println(val)
+	for key, val := range namaUmur {
+		fmt.Println(key,val)
 	}
 	// Output sebelum dihapus
 	/*
@@ -36,7 +41,14 @@ func main() {
 	*/
 
 	// TODO: answer here
-
+	for _,itemMap := range namaUmur{
+		delete(namaUmur[0], "gender")
+		for _,val := range itemMap{
+			delete(itemMap, "gender")
+			fmt.Println(val)
+		}
+		
+	}
 	// Output setelah dihapus
 	/*
 		map[name:Socrates]
